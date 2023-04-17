@@ -1,0 +1,14 @@
+<section class="container__login">
+    <div>
+        <h1>Bienvenue sur <strong>LevelUP</strong></h1>
+        <p>Pour commencer merci de choisir un nom de joueur.
+            Si votre nom existe nous chargerons votre partie</p>
+
+    </div>
+
+    <form (submit)="logMyUser(input.value, $event)" >
+        <label for="useName">Nom du joueur</label>
+        <input type="text" name="userName" id="" #input>
+        <button type="submit" >Se connecter</button>
+    </form>
+</section>

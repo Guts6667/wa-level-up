@@ -1,0 +1,116 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "name": "John Doe",
+      "xp": 500,
+      "gold": 100
+    },
+    {
+      "id": 2,
+      "name": "Jane Doe",
+      "xp": 1500,
+      "gold": 500
+    },
+    {
+      "id": 3,
+      "name": "Alice Smith",
+      "xp": 800,
+      "gold": 200
+    },
+    {
+      "id": 4,
+      "name": "Bob Johnson",
+      "xp": 2500,
+      "gold": 600
+    },
+    {
+      "id": 5,
+      "name": "Charlie Brown",
+      "xp": 1200,
+      "gold": 300
+    },
+    {
+      "id": 6,
+      "name": "David Williams",
+      "xp": 2000,
+      "gold": 800
+    },
+    {
+      "id": 7,
+      "name": "Eve Jones",
+      "xp": 1000,
+      "gold": 400
+    }
+  ],
+  "adventures": [
+    {
+      "id": 1,
+      "name": "Le sac à dos de Ladmya",
+      "levelRequired": 1,
+      "winXP": 100,
+      "winGold": 50
+    },
+    {
+      "id": 2,
+      "name": "La montagne Nakkache",
+      "levelRequired": 5,
+      "winXP": 500,
+      "winGold": 250
+    },
+    {
+      "id": 3,
+      "name": "Les cavernes d'Yrondil",
+      "levelRequired": 10,
+      "winXP": 1000,
+      "winGold": 500
+    },
+    {
+      "id": 4,
+      "name": "La forêt enchantée de Lysandre",
+      "levelRequired": 15,
+      "winXP": 1500,
+      "winGold": 750
+    },
+    {
+      "id": 5,
+      "name": "Le labyrinthe des ombres",
+      "levelRequired": 20,
+      "winXP": 2000,
+      "winGold": 1000
+    },
+    {
+      "id": 6,
+      "name": "La cité perdue d'Agnarok",
+      "levelRequired": 25,
+      "winXP": 2500,
+      "winGold": 1250
+    },
+    {
+      "id": 7,
+      "name": "Le château de cristal",
+      "levelRequired": 30,
+      "winXP": 3000,
+      "winGold": 1500
+    },
+    {
+      "id": 8,
+      "name": "Le repaire du dragon Keldrak",
+      "levelRequired": 35,
+      "winXP": 3500,
+      "winGold": 1750
+    },
+    {
+      "id": 9,
+      "name": "Le sanctuaire des Titans",
+      "levelRequired": 40,
+      "winXP": 4000,
+      "winGold": 2000
+    }
+  ],
+  "settings": {
+    "xpFirstLevel": 1000,
+    "xpRationByLevel": 1.5,
+    "maxLever": 50
+  }
+}
