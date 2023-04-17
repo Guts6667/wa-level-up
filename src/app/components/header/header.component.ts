@@ -1,14 +1,14 @@
-import { Component, Input } from '@angular/core';
-import { UserService } from 'src/app/services/user.service';
+import { Component, Input } from "@angular/core";
+import { User } from "src/app/interfaces/user";
+import { UserService } from "src/app/services/user.service";
 
 @Component({
-  selector: 'app-header',
-  templateUrl: './header.component.html',
-  styleUrls: ['./header.component.scss'],
+  selector: "app-header",
+  templateUrl: "./header.component.html",
+  styleUrls: ["./header.component.scss"],
 })
 export class HeaderComponent {
-  @Input() title: string = '';
-  constructor(public userService: UserService) {
-    userService.getUsers().subscribe();
-  }
+  @Input() title: string = "";
+  @Input() loggedUser: User | null = null;
+  constructor(public userService: UserService) {}
 }

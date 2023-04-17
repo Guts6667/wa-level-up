@@ -27,6 +27,8 @@ export class LoginComponent {
         if (this.myUser && this.myUser !== null) {
           console.log(`User: ${this.myUser.name} connected successfuly`);
           this.userService.login();
+          this.userService.loggedUser = this.myUser;
+          this.router.navigate([`/home`, this.myUser.name]);
         }
       },
       (error) => {

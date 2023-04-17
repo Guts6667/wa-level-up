@@ -1,13 +1,13 @@
-import { Component } from '@angular/core';
-import { UserService } from 'src/app/services/user.service';
+import { Component, Input } from "@angular/core";
+import { User } from "src/app/interfaces/user";
+import { UserService } from "src/app/services/user.service";
 
 @Component({
-  selector: 'app-user-infos',
-  templateUrl: './user-infos.component.html',
-  styleUrls: ['./user-infos.component.scss'],
+  selector: "app-user-infos",
+  templateUrl: "./user-infos.component.html",
+  styleUrls: ["./user-infos.component.scss"],
 })
 export class UserInfosComponent {
-  constructor(public userService: UserService) {
-    userService.getUsers().subscribe();
-  }
+  @Input() loggedUser: User | null = null;
+  constructor(public userService: UserService) {}
 }

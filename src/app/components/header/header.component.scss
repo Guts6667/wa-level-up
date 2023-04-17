@@ -1,28 +1,21 @@
-nav {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background-color: chocolate;
+.container {
+  &__header {
+    display: grid;
+    grid-template-columns: 30% 30% 30%;
+    align-items: center;
+    justify-content: space-between;
 
-  .brand {
-    font-size: 1.5rem;
-    font-weight: 700;
-  }
-
-  ul li {
-    display: inline-block;
-    margin: 0 10px;
-    a {
-      opacity: 0.6;
-      transition: all 0.2s;
-
-      &.active {
-        opacity: 1;
-        color: #fff;
-      }
-
-      &:hover {
-        opacity: 1;
+    nav {
+      display: flex;
+      column-gap: 10px;
+      a {
+        opacity: 0.7;
+        &:hover {
+          color: palegreen;
+        }
+        &.active {
+          opacity: 1;
+        }
       }
     }
   }

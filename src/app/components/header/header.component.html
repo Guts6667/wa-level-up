@@ -1,19 +1,9 @@
-<nav>
-  <span class="brand">
-    {{ title }}
-  </span>
-  <ul>
-    <li>
-      <a
-        [routerLinkActiveOptions]="{ exact: true }"
-        routerLinkActive="active"
-        routerLink="/home"
-        >Accueil</a
-      >
-    </li>
-    <li>
-      <a routerLinkActive="active" routerLink="/settings">Paramètres</a>
-    </li>
-  </ul>
-  <app-user-infos></app-user-infos>
-</nav>
+<header class="container container__header">
+  <h1>LevelUp</h1>
+
+  <nav>
+    <a [routerLink]="['/home', loggedUser?.name]" routerLinkActive="active">Accueil</a>
+    <a [routerLink]="['/settings', loggedUser?.name]" routerLinkActive="active">Paramètres</a>
+  </nav>
+  <app-user-infos [loggedUser]="loggedUser"></app-user-infos>
+</header>

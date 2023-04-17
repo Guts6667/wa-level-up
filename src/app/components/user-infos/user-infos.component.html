@@ -1,3 +1,13 @@
-<div>
-  <span *ngFor="let user of userService.users">Bonjour{{ user.name }}</span>
+<div class="container__userInfos">
+  <div class="container__userInfos-left">
+    <span>Bonjour {{loggedUser?.name}}</span>
+    <div>
+        <span>Niveau : <!-- Insert level here --></span>
+        <div class="wrapper-xp">
+            <div class="xp-bar"></div>
+        </div>
+        <span>Prochain niveau dans <!-- Insert remaining xp points here --> points</span>
+    </div>
+  </div>
+  <img src="/assets/200px-Patrick_Star.svg.png" alt="Picture of {{loggedUser?.name}}">
 </div>
