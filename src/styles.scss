@@ -10,10 +10,21 @@ body {
   background-color: $primary;
   font-family: "Poppins", sans-serif;
 }
-p {
+h1{
+  font-size: 18px;
+  font-weight: 500;
+}
+h2{
+  font-size: 16px;
+  font-weight: 400;
+}
+p,li {
   font-size: 14px;
 }
-
+li, ul{
+  list-style: none;
+  padding-inline-start: 0;
+}
 button {
   cursor: pointer;
 }
@@ -24,4 +35,10 @@ a {
 }
 .container{
   padding: 20px;
+}
+.errorMsg{
+  color: firebrick;
+  font-style: italic;
+  font-size: 10px;
+  align-self: self-start;
 }

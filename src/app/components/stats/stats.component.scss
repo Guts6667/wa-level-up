@@ -1,0 +1,21 @@
+aside {
+  ul {
+    text-align: right;
+    padding-inline-start: 10px;
+    li {
+      display: flex;
+      justify-content: space-between;
+      span {
+        &:first-of-type {
+          min-width: 70%;
+          text-align: right;
+        }
+        &:last-of-type {
+          min-width: 30%;
+          padding-left: 15px;
+          text-align: left;
+        }
+      }
+    }
+  }
+}

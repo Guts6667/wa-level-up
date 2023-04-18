@@ -6,9 +6,11 @@
 
     </div>
 
-    <form (submit)="logMyUser(input.value, $event)" >
+    <form (submit)="logMyUser(input.value, $event)">
         <label for="useName">Nom du joueur</label>
         <input type="text" name="userName" id="" #input>
-        <button type="submit" >Se connecter</button>
+        <span *ngIf="errorMsg" class="errorMsg">Joueur introuvable</span>
+        <button type="submit">Se connecter</button>
+        
     </form>
 </section>

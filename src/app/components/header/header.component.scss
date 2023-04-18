@@ -1,13 +1,14 @@
 .container {
   &__header {
+    padding: 5px 20px;
     display: grid;
-    grid-template-columns: 30% 30% 30%;
+    grid-template-columns: 33% 33% 33%;
     align-items: center;
     justify-content: space-between;
 
     nav {
       display: flex;
-      column-gap: 10px;
+      justify-content: space-evenly;
       a {
         opacity: 0.7;
         &:hover {

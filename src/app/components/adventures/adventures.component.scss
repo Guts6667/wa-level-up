@@ -1,0 +1,39 @@
+.container {
+  &__adventure {
+    display: flex;
+    flex-direction: column;
+    span{
+      align-self: self-end;
+      font-size: 12px;
+    }
+    li {
+      display: flex;
+      justify-content: space-between;
+      padding: 15px 10px;
+      border: solid 1px white;
+      opacity: 0.1;
+      &:hover {
+        opacity: 1;
+        cursor: pointer;
+      }
+      &:active {
+        border: 2px solid #d6c10c;
+        background: linear-gradient(
+          299deg,
+          rgba(214, 200, 12, 0.5256696428571428) 0%,
+          rgba(1, 3, 31, 1) 55%
+        );
+        span {
+          &:first-of-type {
+            color: #d6c10c;
+          }
+        }
+      }
+      span {
+        
+        align-self: self-end;
+        text-align: end;
+      }
+    }
+  }
+}

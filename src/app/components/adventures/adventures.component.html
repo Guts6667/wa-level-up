@@ -1,5 +1,9 @@
-<ul>
-  <li *ngFor="let adventure of adventureService.adventures">
-    {{ adventure?.name }}
-  </li>
-</ul>
+<main class=" container__adventure">
+  <h2>Aventure</h2>
+  <span>Niveau Requis</span>
+  <ul>
+    <li *ngFor="let adventure of adventureService.adventures">
+      <span>{{ adventure?.name }}</span><span>{{ adventure?.levelRequired }}</span>
+    </li>
+  </ul>
+</main>
