@@ -13,6 +13,8 @@ export class HomeComponent {
 
   ngOnInit(): void {
     this.currentUser = this.userService.loggedUser;
-    console.log(this.currentUser);
+    if (this.currentUser) {
+      console.log(this.currentUser);
+    }
   }
 }

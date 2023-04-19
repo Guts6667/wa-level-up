@@ -5,5 +5,5 @@
     <a [routerLink]="['/home', loggedUser?.name]" routerLinkActive="active">Accueil</a>
     <a [routerLink]="['/settings', loggedUser?.name]" routerLinkActive="active">Paramètres</a>
   </nav>
-  <app-user-infos [loggedUser]="loggedUser"></app-user-infos>
+  <app-user-infos [loggedUser]="loggedUser" ></app-user-infos>
 </header>

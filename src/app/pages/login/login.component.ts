@@ -20,6 +20,12 @@ export class LoginComponent {
     });
   }
 
+  /**
+   *
+   * @param userName userName is used to call the findUser method
+   * @param Event It's used to call the preventDefault() method
+   *
+   */
   logMyUser(userName: string, event: Event): void {
     event.preventDefault();
     this.userService.findUser(userName).subscribe(

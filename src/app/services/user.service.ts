@@ -1,7 +1,8 @@
-import { Injectable } from '@angular/core';
+import { Injectable, EventEmitter } from '@angular/core';
 import { User } from '../interfaces/user';
 import { HttpClient } from '@angular/common/http';
-import { map, Observable, tap, BehaviorSubject } from 'rxjs';
+import { map, Observable } from 'rxjs';
+
 @Injectable({
   providedIn: 'root',
 })
@@ -9,8 +10,14 @@ export class UserService {
   public users: User[] = [];
   private _loggedUser: User | null = null;
   private isLoggedIn: boolean = false;
+  public userChanged: EventEmitter<void> = new EventEmitter();
+
   constructor(private httpClient: HttpClient) {}
 
+  /**
+   * Returns an array of object with all the user datas
+   * @returns {User[]} 
+   */
   public getUsers(): Observable<User[]> {
     return this.httpClient.get<User[]>('http://localhost:3000/users').pipe(
       map((users: User[]) => {
@@ -20,6 +27,11 @@ export class UserService {
     );
   }
 
+  /**
+   * Takes the userName as a parameter and returns the datas of the user
+   * @param {string} name 
+   * @returns {User} 
+   */
   public findUser(name: string): Observable<User | null> {
     return this.getUsers().pipe(
       map(
@@ -31,46 +43,39 @@ export class UserService {
     );
   }
 
+  /**
+   * Allows to login the user
+   * @returns {boolean}
+   */
   login(): boolean {
     return (this.isLoggedIn = true);
   }
+  /**
+   * Allows to logOut and empty the userDatas
+   */
   logout(): void {
     this.isLoggedIn = false;
     this.loggedUser = null;
   }
+  /**
+   * Method used to check if the user is logged in
+   */
   get isLogged(): boolean {
     return this.isLoggedIn;
   }
 
+  /**
+   * Method used to retrieve the user datas
+   */
   get loggedUser(): User | null {
     return this._loggedUser;
   }
 
+  /**
+   * Setter used to set the logged user datas
+   */
   set loggedUser(user: User | null) {
     this._loggedUser = user;
+    this.isLoggedIn = user !== null;
   }
 }
-
-/**
- *
- * @param userId
- * @param goldAmount
- */
-
-// public addGold(userId: number, goldAmount: number) {
-//   // Get my user by comparing id
-//   const user = this.users.find((myUser) => myUser.id === userId);
-//   if (user) {
-//     user.gold += goldAmount;
-//     this.httpClient
-//       // Update user infos in db
-//       .put<User>(`http://localhost:3000/users/${userId}`, user)
-//       .subscribe((updateUser: User) => {
-//         console.log(
-//           `User gold updated successfully, ${updateUser?.name} now has ${updateUser?.gold}`
-//         );
-//       });
-//   } else {
-//     console.log('User not found');
-//   }
-// }
