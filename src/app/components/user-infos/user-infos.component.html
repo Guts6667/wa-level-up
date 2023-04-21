@@ -1,12 +1,12 @@
-<div class="container__userInfos">
+<div class="container__userInfos" >
   <div class="container__userInfos-left">
     <span class="hello">Bonjour {{loggedUser?.name}}</span>
     <div class="box-xp">
-        <span>Niveau : {{"level"}}</span>
-        <div class="wrapper-xp">
-            <div class="xp-bar"></div>
-        </div>
-        <span>Prochain niveau dans {{"remaining xp till the next level"}} points</span>
+      <span>Niveau : {{userLevelInfos?.currentLvl}}</span>
+      <div class="wrapper-xp">
+        <div class="xp-bar" [ngStyle]="{'transition-property':'width', 'transition': 'ease-in-out .26s .5s','width': getXpBarWidth()}"></div>
+      </div>
+      <span>Prochain niveau dans {{userLevelInfos?.remainingXp}} points</span>
     </div>
   </div>
   <img src="/assets/200px-Patrick_Star.svg.png" alt="Picture of {{loggedUser?.name}}">

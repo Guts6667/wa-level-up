@@ -1,5 +1,5 @@
 export interface Adventure {
-  id?: number;
+  id: number;
   name: string;
   levelRequired: number;
   winXP: number;

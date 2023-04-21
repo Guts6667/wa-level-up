@@ -8,7 +8,11 @@ import { Observable, map } from "rxjs";
   providedIn: "root",
 })
 export class SettingsService {
-  public settings: Settings[] = [];
+  public settings: Settings = {
+    xpFirstLevel: 0,
+    xpRatioByLevel: 0,
+    maxLevel: 0,
+  };
 
   constructor(private httpClient: HttpClient) {}
 
@@ -16,15 +20,13 @@ export class SettingsService {
    * This method fetchs the settings datas
    * @returns {Settings[]}
    */
-  public getSettings(): Observable<Settings[]> {
-    return this.httpClient
-      .get<Settings[]>("http://localhost:3000/settings")
-      .pipe(
-        map((settings: Settings[]) => {
-          this.settings = settings;
-          return settings;
-        })
-      );
+  public getSettings(): Observable<Settings> {
+    return this.httpClient.get<Settings>("http://localhost:3000/settings").pipe(
+      map((settings: Settings) => {
+        this.settings = settings;
+        return settings;
+      })
+    );
   }
   /**
    * This method takes the user xp and proceeds it to return the current level
@@ -32,34 +34,60 @@ export class SettingsService {
    * @param {User[]} user
    * @returns
    */
-  getUserLevel(user: User): { currentLvl: number; xpToNextLvl: number } | null {
+  getUserLevel(user: User): {
+    currentLvl: number;
+    xpToNextLvl: number;
+    remainingXp: number;
+    xpFromCurrentToNextLevel: number;
+  } | null {
     if (!user) {
       return null;
     }
 
-    const currentSettings = this.settings[0];
+    /**
+     * Settings parameters
+     */
+    let xpToFirstLevel = this.settings.xpFirstLevel;
+    let maxLvl = this.settings.maxLevel;
 
-    let currentXP = user.xp;
-    let currentLvl = 0;
-    let previousLvlRequirement = currentSettings.xpFirstLevel;
-    let nextLvlRequirement =
-      currentSettings.xpFirstLevel * currentSettings.xpRatioByLevel;
+    /**
+     * User Parameters
+     */
+    let currentXp = user.xp;
+    let currentLevel = 1;
+    let xpToNextLevel = xpToFirstLevel;
+    let remainingXp = 0;
+    let xpFromCurrentToNextLevel = 0;
+    xpToNextLevel += xpToNextLevel * 1.5;
+
+    remainingXp = xpToNextLevel - currentXp;
+    console.log(xpToNextLevel);
 
     while (
-      currentXP >= nextLvlRequirement &&
-      currentLvl < currentSettings.maxLevel
+      currentXp > 500 &&
+      currentLevel < maxLvl &&
+      currentXp >= xpToNextLevel
     ) {
-      currentLvl += 1;
-      previousLvlRequirement = nextLvlRequirement;
-      nextLvlRequirement =
-        previousLvlRequirement * currentSettings.xpRatioByLevel;
+      currentLevel += 1;
+
+      xpToNextLevel = xpToNextLevel * 1.5;
     }
-
-    const xpToNextLvl = nextLvlRequirement - currentXP;
-
     return {
-      currentLvl,
-      xpToNextLvl,
+      currentLvl: currentLevel,
+      xpToNextLvl: xpToNextLevel,
+      xpFromCurrentToNextLevel: xpToNextLevel - xpToFirstLevel,
+      remainingXp: remainingXp,
     };
   }
 }
+
+/**
+ * currentXp
+ * xpFirstLevel;
+ * xpRatio
+ * maxLevel
+ * userXp
+ * currentLvl
+ *
+ *
+ */

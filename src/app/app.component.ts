@@ -31,18 +31,18 @@ export class AppComponent {
     return this.userService.loggedUser;
   }
 
-  /**
-   * Takes the user datas as a parameter and gets the xp related user infos.
-   * @param {User} user 
-   * @returns 
-   */
-  getUserLevelInfo(user?: User | null): { currentLvl: number; xpToNextLvl: number } | null {
-    if (!user) {
-      return null;
-    }
-    console.log(this.settingsService.getUserLevel(user));
+  // /**
+  //  * Takes the user datas as a parameter and gets the xp related user infos.
+  //  * @param {User} user 
+  //  * @returns 
+  //  */
+  // getUserLevelInfo(user?: User | null): { currentLvl: number; xpToNextLvl: number } | null {
+  //   if (!user) {
+  //     return null;
+  //   }
+  //   console.log(this.settingsService.getUserLevel(user));
     
-    return this.settingsService.getUserLevel(user);
-  }
+  //   return this.settingsService.getUserLevel(user);
+  // }
   
 }
