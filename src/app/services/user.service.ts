@@ -42,7 +42,12 @@ export class UserService {
       )
     );
   }
-
+  public updateUser(user: User): Observable<User | null> {
+    return this.httpClient.patch<User>(`http://localhost:3000/users/${user.id}`, user)
+    
+  }
+  
+  
   /**
    * Allows to login the user
    * @returns {boolean}

@@ -61,7 +61,6 @@ export class SettingsService {
     xpToNextLevel += xpToNextLevel * 1.5;
 
     remainingXp = xpToNextLevel - currentXp;
-    console.log(xpToNextLevel);
 
     while (
       currentXp > 500 &&

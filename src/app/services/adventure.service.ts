@@ -21,4 +21,15 @@ export class AdventureService {
         })
       );
   }
+
+  public findAdventure(name: string ): Observable<Adventure | null> {
+    return this.getAdventures().pipe(
+      map(
+        (adventures: Adventure[]) =>
+          adventures.find(
+            (adventure) => adventure.name.toLowerCase() === name.toLowerCase()
+          ) || null
+      )
+    );
+  }
 }

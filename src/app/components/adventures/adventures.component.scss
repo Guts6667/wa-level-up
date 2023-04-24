@@ -37,3 +37,20 @@
     }
   }
 }
+.hidden{
+  display: none !important;
+}
+.highlighted-item{
+  opacity: 1 !important;
+  border: 2px solid #d6c10c !important;
+  background: linear-gradient(
+    299deg,
+    rgba(214, 200, 12, 0.5256696428571428) 0%,
+    rgba(1, 3, 31, 1) 55%
+  );
+  span {
+    &:first-of-type {
+      color: #d6c10c;
+    }
+  }
+}

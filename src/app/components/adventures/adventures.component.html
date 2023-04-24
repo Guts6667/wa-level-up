@@ -2,7 +2,7 @@
   <h2>Aventure</h2>
   <span>Niveau Requis</span>
   <ul>
-    <li *ngFor="let adventure of adventureService.adventures">
+    <li *ngFor="let adventure of adventureService.adventures" #element (click)="logEvent(element, adventure)" class="adventure-item">
       <span>{{ adventure?.name }}</span><span>{{ adventure?.levelRequired }}</span>
     </li>
   </ul>
